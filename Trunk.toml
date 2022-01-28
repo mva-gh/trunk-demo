@@ -1,0 +1,25 @@
+# https://github.com/thedodd/trunk/blob/master/Trunk.toml
+# https://trunkrs.dev/assets/
+# https://trunkrs.dev/configuration/
+
+[serve]
+addr = "127.0.0.1"
+port = 9999
+open = true
+
+[tools]
+wasm_bindgen = "0.2.79"
+wasm_opt = "version_105"
+
+[build]
+release = true
+pattern_script = """
+
+<script type="module">
+
+  import init from '{base}{js}';
+  import onInit from './index.js';
+  init().then( onInit );
+</script>
+
+"""

@@ -1,0 +1,24 @@
+[package]
+name = "trunk_demo"
+version = "0.0.1"
+edition = "2021"
+publish = false
+license = "MIT"
+readme = "Readme.md"
+include = [
+  "/src",
+  "/Cargo.toml",
+  "/Readme.md",
+  "/License",
+]
+
+[features]
+default = []
+
+[lib]
+name = "web"
+crate-type = [ "cdylib" ]
+path = "./src/lib.rs"
+
+[dependencies]
+wasm-bindgen = "0.2.79"
