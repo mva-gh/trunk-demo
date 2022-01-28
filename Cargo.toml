@@ -22,3 +22,13 @@ path = "./src/lib.rs"
 
 [dependencies]
 wasm-bindgen = "0.2.79"
+
+[profile.release]
+opt-level = "z" # optimize for small code size aggressively.
+lto = true # link-time optimization
+panic = "abort" # abort immediately rather than unwind
+codegen-units = 1 # improves optimization, but decrease compile time
+# strip = "symbols" # strip symbols
+
+[profile.release.package."*"]
+opt-level = "z"
